@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block contents %}
+
+<div class="conatiner">
+  <div class="row">
+    <div class="col-md-6 mx-auto py-5">
+      <a href="" class="card-link"><i class="fas fa-arrow-circle-left fa-2x my-3"></i></a>
+     <div class="card p-3">
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% if form %}
+          {% for fields in form %}
+          <div class="form-group">
+            <label for=""> {{fields.label}}</label>
+            <!-- <input type="text" name="" id="" class="form-control"> -->
+            {{fields}}
+          </div>
+          {% endfor %}
+          {% else %}
+        
+          {% endif %}
+        
+        
+        
+          <input type="submit" class="btn btn-info btbn-lg" value="Create Project">
+        </form>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock contents %}
+

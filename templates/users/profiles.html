@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contents %}
+
+<!-- hero -->
+<section class="profiles py-4">
+  <div class="hero text-center p-4">
+    <div class="container container-narrow">
+      <div class="hero-caption text-uppercase">
+        <h2>connect with <span>developers</span> <br> from around the world  </h2>
+      </div>
+
+      <div class="hero-search mx-auto">
+        <form action="" method="get">
+          <div class="form-group">
+            <label for="search">Search by developers name </label>
+            <input type="text" name="search" id="search" placeholder="Search by Project Title" class="form-control py-3">
+          </div>
+          <input type="submit" class="btn btn-info btn-md" value="Search">
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- dev list -->
+<section class="devlist py-4">
+  <div class="container">
+    <div class="row">
+      {% if show %}
+      {% for item in show %}
+      <div class="col-md-4">
+        <div class="card my-2 p-2">
+          <a href="{% url 'profile' item.id %}" class="card-link" target="_blank">
+
+            <div class="row">
+              <div class="col-md-4">
+                <img width="40" height="100" src="{{item.profile_pix.url}}" alt="{{item.name}}" class="card-img-top rounded-circle border border-info">
+              </div>
+              <div class="col-md-8">
+                <h4>{{item.name}}</h4>
+                <p class="lead text-dark font-weight-bold font-italic"> {{item.headline | slice:"50"}} </p>
+              </div>
+            </div>
+
+            <div class="card-body text-dark">
+              <p class="lead">
+                {{item.bio | slice:"100"}}
+              </p>
+            </div>
+
+            <div class="card-tags">
+              {% for skill in item.skill_set.all|slice:"5" %}
+              <span class="tag bg-info p-1 mx-1 text-white rounded">
+                <small> {{skill}} </small>
+              </span>
+              {% endfor %}
+            </div>
+
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <p>No Projects Available</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+{% endblock %}

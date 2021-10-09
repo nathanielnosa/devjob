@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<!-- hero -->
+<section class="projects py-4">
+  <div class="hero text-center p-4">
+    <div class="container container-narrow">
+      <div class="hero-caption text-uppercase">
+        <h2>Search for <span>Projects</span></h2>
+      </div>
+
+      <div class="hero-search mx-auto">
+        <form action="" method="get">
+          <div class="form-group">
+            <label for="search">Search By Projects</label>
+            <input type="text" name="search" id="search" placeholder="Search by Project Title" class="form-control">
+          </div>
+          <input type="submit" class="btn btn-info btn-md" value="Search">
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- dev list -->
+<section class="devlist py-4">
+  <div class="container">
+    <div class="row">
+      {% if show %}
+        {% for item in show %}
+          <div class="col-md-4">
+            <div class="card my-2">
+              <a href="{% url 'project' item.id %}" class="card-link" target="_blank">
+              <img height="250" src="{{item.main_photo.url}}" alt="{{item.title}}" class="card-img-top">
+              <div class="card-body">
+                <h4>{{item.title}}</h4>
+                <em><a href="" class="card-link" target="_blank"> By {{item.owner.name}}</a></em>
+                <p class="font-weight-bold"><span>{{item.vote_ratio}}%</span> Positive Feedbacks({{item.vote_total}})vote{{item.vote_total|pluralize:'s'}}</p>         
+               
+                <div class="card-tags">
+                  {% for tag in item.tags.all %}
+                  <span class="tag bg-info p-1 mx-1 text-white rounded">
+                    <small> {{tag}} </small>
+                  </span>
+                  {% endfor %}
+                </div>
+
+              </div>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No Projects Available</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock contents %}

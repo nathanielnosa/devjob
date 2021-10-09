@@ -1,0 +1,52 @@
+.btn-success, .badge-success{
+  background: #30caa0;
+}
+.btn-success{
+   border:#30caa0 ;
+ }
+
+#top-bar , #top-bar a{
+color:#0F2343;
+font-weight: bold;
+font-size: large;
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#top-bar , a:hover{
+color:#193548;
+}
+.navbar {
+  background-color:#193548;
+  opacity: 0.9;
+  text-transform:capitalize;
+  font-size:20px;
+}
+.navbar ul li{
+  padding: 15px;
+}
+.navbar ul li a{
+  color: white !important;
+  padding: 10px;
+}
+
+.navbar-brand img{
+  width:65px;
+}
+.projects{
+  background-color: #d3d3d35b;
+   opacity: 0.9;
+}
+
+.hero-caption h2>span{
+  font-weight: bolder;
+  font-size: 35px;
+}
+
+.hero-search .form-group{
+  width: 50%;
+  display: inline-block;
+}
+.profiles{
+  background:#193548;
+  opacity: 0.9;
+  color: white;
+}
