@@ -156,3 +156,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+if os.getcwd() == '/app':
+    DEBUG = False
