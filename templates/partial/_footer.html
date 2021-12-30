@@ -1,4 +1,56 @@
-<hr>
-<footer>
-  footer
+{% load static %}
+<footer class="footer text-white">
+  <div class="container footer p-5">
+    <div class="row">
+
+
+      <div class="col-md-2">
+        <a href="{% url 'profiles' %}" class="navbar-brand">
+          <img class="rounded-circle" src="{% static 'img/logo.png' %}" alt="logo">
+        </a>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>SOLUTIONS</h5>
+            <p><a href="" class="card-link">Explainable AI</a></p>
+            <p><a href="" class="card-link">ML Monitoring</a></p>
+            <p><a href="" class="card-link">Web Applications</a></p>
+
+          </div>
+          <div class="col-md-4">
+            <h5>RESOURCES</h5>
+               <p><a href="" class="card-link">Resource Hub</a></p>
+               <p><a href="" class="card-link">Blog</a></p>
+               <p><a href="" class="card-link">Learn More</a></p>
+          </div>
+          <div class="col-md-4">
+            <h5>COMPANY</h5>
+              <p><a href="" class="card-link">About Us</a></p>
+              <p><a href="" class="card-link">Career</a></p>
+              <p><a href="" class="card-link">Events</a></p>
+              <p><a href="" class="card-link">Policy Privacy</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 text-white">
+        <h3>Subscribe</h3>
+        <form action="" method="post" class=>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Full Name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Email" required>
+          </div>
+            <button type="submit" class="btn-block btn btn-success">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+      <hr>
+      <p class="text-center lead text-white">Developed By: <i>Nathaniel Nosa</i></p>
+
+  </div>
 </footer>

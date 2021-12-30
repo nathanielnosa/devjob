@@ -14,7 +14,16 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
 #top-bar , a:hover{
 color:#193548;
 }
-.navbar {
+footer{
+  background-color:#193548;
+  opacity: 0.9;
+  margin-top:15rem;
+}
+footer .a{
+  color:white;
+  text-decoration:none;
+}
+.navbar{
   background-color:#193548;
   opacity: 0.9;
   text-transform:capitalize;
@@ -49,4 +58,38 @@ color:#193548;
   background:#193548;
   opacity: 0.9;
   color: white;
+}
+.pagination li.active >a{
+  background-color:lightslategray !important;
+}
+
+@media (max-width:770px) {
+  #top-bar{
+    text-align: center !important;
+  }
+  #top-bar .social{
+    text-align: center !important;
+  }
+  footer{
+    text-align: center !important;
+  }
+  .pagination{
+  justify-content: center !important;
+  }
+  .hero-search label{
+    display: block;
+    text-align:center !important;
+    width:130px !important;
+  }
+  .hero-search .form-control{
+    display: block;
+    margin-left:-35px;
+    width:200px !important;
+    justify-content: center;
+  }
+  .hero-search .btn{
+    display: block;
+    margin-left:70px;
+    width:100px !important;
+  }
 }

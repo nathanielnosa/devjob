@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contents %}
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card p-3">
+        
+        <a href="{% url 'account' %}"><i class="fa mb-3 fa-arrow-left text-white bg-info p-3 rounded-circle"></i></a>
+        <h4 class="text-center bg-info p-2 text-white">Finish Editing/ Update Profile</h4>
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% for fields in form %}
+          {{fields.label}}
+          {{fields}}
+          {% endfor %}
+            <input type="submit" class="btn btn-info btn-block my-2" value="Update Profile">
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock contents %}

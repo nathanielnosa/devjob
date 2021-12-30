@@ -41,7 +41,7 @@
             <div class="card border-0">
               <img height="400" src="{{ show.main_photo.url}}" alt="" class="card-img">
               <div class="card-body">
-                <h4><a href="" class="card-link" target="_blank">Nathaniel Nosa</a></h4>
+                <h4><a href="" class="card-link" target="_blank">{{show.owner.name}}</a></h4>
                 <h1 class="card-title py-2  font-weight-bold">{{show.title}}</h1>
                 <h3 class="py-2">ABOUT THE PROJECT</h3>
                 <p class="lead">{{show.description}}</p>
@@ -49,36 +49,56 @@
                 <h3 class="py-2">FEEDBACK</h3>
                 <p class="font-weight-bold"><span>{{show.vote_ratio}}%</span> Positive Feedbacks({{show.vote_total}})
                   vote{{show.vote_total|pluralize:'s'}}</p>
-
-                <form action="">
-                  {% csrf_token %}
-                  <div class="form-group">
-                    <textarea name="" id="" cols="30" rows="10" class="form-control my-2">Leave a comment ...</textarea>
-                    <button type="submit" class="btn btn-info btn-lg">Send Comments <i class="fas fa-send"></i></button>
-                  </div>
-                </form>
-
+                
+                {% if request.user.profile.id in show.reviewers %}
+                <p class="lead"> You have already comment or vote to this project</p>
+                {% elif request.user.profile == show.owner %}
+                <p class="lead"> You can't comment or vote on your own project</p>
+                {% elif request.user.is_authenticated %}
+                  <form action="{% url 'project' show.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      {% for fields in form %}
+                      {{fields.label}}
+                      {{fields}}
+                      {% endfor %}
+                      <button type="submit" class="btn btn-info btn-lg mt-2">Send Comments <i class="fas fa-send"></i></button>
+                    </div>
+                  </form>
+                {% else %}
+                  <p>You have to be a login user to comment or vote
+                    <a href="{% url 'login' %}?next={{request.path}}" target="_blank" rel="noopener noreferrer">Login</a>
+                  </p>
+                {% endif %}
+        
                 
               </div>
             </div>
           
             {% else %}
             {% endif %}
-
+            <!-- users and their comments -->
+            
             <div class="row">
+              {% for review in show.review_set.all %}                
+              {% if review.body %}
               <div class="col-md-2">
-                <img class="rounded-circle" src="{% static 'img/avartar.png' %}" alt="logo" width="100">
+                <a href="{% url 'profile' show.owner.id %}" target="_blank" rel="noopener noreferrer">
+                  <img class="rounded-circle" src="{{review.owner.profile_pix.url }}" alt="logo" height="65" width="70">
+                </a>
               </div>
 
               <div class="col-md-10">
-                <h5 class="text-info"> Nathaniel Nosa</h5>
+                
+                <h5 class="text-info"><a href="{% url 'profile' show.owner.id %}" target="_blank" rel="noopener noreferrer">{{review.owner.name}}</a></h5>
                 <p class="lead">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero odit est, dignissimos quae maiores quisquam nulla vitae
-                  recusandae corrupti nam, magnam eum voluptas minima similique laborum minus quasi! Unde, soluta.
+                  {{review.body|linebreaksbr}}
                 </p>
               </div>
+              {% endif %}
+              {% endfor %}
             </div>
-            
+          
           
           </div>
           

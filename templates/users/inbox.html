@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contents %}
+
+
+<div class="container my-3">
+  <div class="card p-3">
+    <h3 class="card-title"> New Message (<span>{{unreadmsg}}</span>)</h3>
+    <div class="card-body">
+      <ul class="list-group">
+        {% for msg in msg  %}
+        {% if msg.is_read == False %}
+        <li class="list-group-item text-center font-weight-bold">
+        {% else %}
+        <li class="list-group-item text-center">
+        {% endif %}
+            <a class="card-link text-dark" href="{% url 'message' msg.id %}">
+              <span class="float-left">{{msg.name}}</span>
+              <span>{{msg.subject}}</span>
+              <span class="float-right"> {{msg.created}}
+              </span>
+              
+            </a>
+          </li>
+        {% endfor %}
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock contents %}
+

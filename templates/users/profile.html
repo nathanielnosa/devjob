@@ -37,9 +37,11 @@
             </span>
       
             <p>
-              <a href="" class="btn btn-info d-block font-weight-bold mt-3">
-                Send Message
-              </a>
+              {% if request.user.profile.id != show.id %}
+                <a href="{% url 'sendmessage' show.id %}" class="btn btn-info d-block font-weight-bold mt-3">
+                  Send Message
+                </a>
+              {% endif %}  
             </p>
       
           </div>

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contents %}
+
+<!-- dev -->
+
+<div class="container my-5">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="card text-center p-4">
+        <a href="{% url 'editprofile' %}" class="bg-info rounded-pill p-2 text-white mb-2 text-center card-link"><i class="fas fa-edit"></i>Edit</a>
+        <img height="250" src="{{profile.profile_pix.url}}" alt=""
+          class="card-img rounded-circle border border-info mx-auto">
+        <div class="card-body">
+          <h4>{{profile.name}}</h4>
+          <p class="lead text-dark font-weight-bold"> {{profile.headline}} </p>
+          <p class="lead text-dark font-italic"> {{profile.location}} </p>
+
+          <span>
+            {% if profile.social_git %}
+            <a href="" class="card-link m-1"><i class="fab fa-github fa-2x text-secondary"></i></a>
+            {% endif %}
+            {% if profile.social_facebook %}
+            <a href="" class="card-link m-1"><i class="fab fa-facebook fa-2x text-secondary"></i></a>
+            {% endif %}
+            {% if profile.social_twitter %}
+            <a href="" class="card-link m-1"><i class="fab fa-twitter fa-2x text-secondary"></i></a>
+            {% endif %}
+            {% if profile.social_instagram %}
+            <a href="" class="card-link m-1"><i class="fab fa-instagram fa-2x text-secondary"></i></a>
+            {% endif %}
+            {% if profile.social_linkedin %}
+            <a href="" class="card-link m-1"><i class="fab fa-linkedin fa-2x text-secondary"></i></a>
+            {% endif %}
+            {% if profile.social_website %}
+            <a href="" class="card-link m-1"><i class="fas fa-globe fa-2x text-secondary"></i></a>
+            {% endif %}
+          </span>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h3 class="font-weight-bold my-1">ABOUT ME</h3>
+      {{profile.bio}}
+      <h3 class="font-weight-bold my-5">SKILLS <a href="{% url 'createskill' %}" class=" bg-info rounded-pill p-2 text-white h6 float-right card-link"><i class="fas fa-plus"></i> Add Skills</a>
+ </h3>
+      <div class="row">
+        {% for skill in skillone %}
+        <div class="col-md-4 my-3">
+          {{skill.name}}
+        </div>
+        <div class="col-md-8 my-3">
+          {{skill.description}}
+          <a href="{% url 'deleteskills' skill.id %}?next=/account" class="ml-1 bg-danger rounded-pill p-2 text-white h6 float-right card-link"><i class="fas fa-trash"></i> Delete
+            </a>
+          <a href="{% url 'updateskill' skill.id %}" class=" bg-info rounded-pill p-2 text-white h6 float-right card-link"><i class="fas fa-edit"></i> Edit
+            </a>
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <h3 class="font-weight-bold my-4">PROJECTS <a href="{% url 'createproject' %}" class=" bg-info rounded-pill p-2 text-white h6 float-right card-link"><i class="fas fa-plus"></i> Add
+        Project</a></h3>
+      <div class="row">
+        
+        <div class="col-md-12">
+          {% for item in project %}
+          <div class="row">
+            <div class="col-md-4">
+              <a href="{% url 'project' item.id %}">
+                <img height="150" src="{{item.main_photo.url}}" alt="{{item.title}}" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <h4> <a href="{% url 'project' item.id %}">{{item.title}}</h4></a>
+              <p>{{item.description|slice:"150"}}</p>
+              <a href="{% url 'deleteproject' item.id %}?next=/account" class="ml-1 bg-danger rounded-pill p-2 text-white h6 float-right card-link"><i class="fas fa-trash"></i>
+                Delete
+              </a>
+              <a href="{% url 'updateproject' item.id %}" class=" bg-info rounded-pill p-2 text-white h6 float-right card-link"><i class="fas fa-edit"></i> Edit
+              </a>
+            </div>
+
+          </div>
+          <hr>
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+{% endblock contents %}

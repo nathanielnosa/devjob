@@ -11,11 +11,11 @@
       </div>
       <div class="col-md-4">
         <div class="social text-right">
-          <a href=""><i class="fab fa-twitter"></i></a>
-          <a href=""><i class="fab fa-facebook"></i></a>
-          <a href=""><i class="fab fa-linkedin"></i></a>
-          <a href=""><i class="fab fa-instagram"></i></a>
-          <a href=""><i class="fab fa-whatsapp"></i></a>
+          <a target="_blank" href=""><i class="fab fa-twitter"></i></a>
+          <a target="_blank" href="https://web.facebook.com/nathaniel.nartarniel"><i class="fab fa-facebook"></i></a>
+          <a target="_blank" href=""><i class="fab fa-linkedin"></i></a>
+          <a target="_blank" href="https://www.instagram.com/nathanielnosa/"><i class="fab fa-instagram"></i></a>
+          <a target="_blank" href="https://wa.me/+2348177507780"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
     </div>
@@ -35,11 +35,17 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link" href="{% url 'profiles' %}">Developers</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'createproject' %}">Inbox</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'createproject' %}">My Account</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'createproject' %}">Add Project</a></li>
-          <li class="nav-item"><a class="nav-link btn btn-info" href="{% url 'createproject' %}">Login/Sign Up</a></li>
           
+          
+          {% if request.user.is_authenticated %}
+          
+          <li class="nav-item"><a class="nav-link" href="{% url 'inbox' %}">Inbox </a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'account' %}">My Account</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-danger" href="{% url 'logout' %}">Logout </a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link btn btn-info" href="{% url 'login' %}">Login/Sign Up</a></li>
+          {% endif %}
+
         </ul>
       </div>
     </div>

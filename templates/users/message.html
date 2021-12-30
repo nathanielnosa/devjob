@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contents %}
+
+
+<div class="container my-3">
+  <div class="card p-3">
+  <a href="{% url 'inbox' %}"><i class="fa mb-3 fa-arrow-left text-white bg-info p-3 rounded-circle"></i></a>
+  <div class="card-body">
+    <h3>{{msg.subject}}</h3>
+    <small>{{msg.created}}</small>
+    <p class="lead">{{msg.body|linebreaksbr}}</p>
+  </div>
+  </div>
+</div>
+
+{% endblock contents %}

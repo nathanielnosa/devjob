@@ -16,3 +16,17 @@ class CreateProject(ModelForm):
       'tags':forms.CheckboxSelectMultiple(),
       
     }
+
+class CreateReview(ModelForm):
+  class Meta:
+    model = Review
+    fields = ['vote','body']
+    labels = {
+      'vote':'Place your vote',
+      'body':'Add your comment with your vote'
+    }
+    widgets = {
+        'body': forms.Textarea(attrs={'class': 'form-control'}),
+        'vote': forms.Select(attrs={'class': 'form-control'})
+    }
+

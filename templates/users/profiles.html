@@ -11,10 +11,10 @@
       </div>
 
       <div class="hero-search mx-auto">
-        <form action="" method="get">
+        <form id="searchForm" action="{% url 'profiles' %}" method="get">
           <div class="form-group">
             <label for="search">Search by developers name </label>
-            <input type="text" name="search" id="search" placeholder="Search by Project Title" class="form-control py-3">
+            <input type="text" value="{{my_search}}" name="search" id="search" placeholder="Search by Profile" class="form-control py-3">
           </div>
           <input type="submit" class="btn btn-info btn-md" value="Search">
         </form>
@@ -67,6 +67,9 @@
       {% endif %}
     </div>
   </div>
+  <!-- pagination -->
+  {% include 'partial/pagination.html' with queryset=show custom_range=custom_range %}
+  
 </section>
 
 
