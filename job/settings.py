@@ -31,9 +31,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'cloudinary_storage',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
-    # 'cloudinary',
+    'cloudinary',
     'projects.apps.ProjectsConfig',
     'users.apps.UsersConfig',
 ]
@@ -166,10 +166,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': os.getenv('CLOUD_NAME'),
-#     'API_KEY': os.getenv('API_KEY'),
-#     'API_SECRET': os.getenv('API_SECRET')
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+    'API_KEY': os.getenv('API_KEY'),
+    'API_SECRET': os.getenv('API_SECRET')
+}
