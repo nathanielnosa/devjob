@@ -84,18 +84,18 @@ footer .a{
   .hero-search .form-control{
     display: block;
     margin-left:-35px;
-    width:100% !important;
+    width:200px !important;
     justify-content: center;
   }
   .hero-search .btn{
     display: block;
     margin-left:70px;
-    width:100% !important;
+    width:100px !important;
   }
   #ppix{
     width:150px;
+    height:160px;
     text-align: center !important;
-    justify-content: center !important;
   }
 
 }
