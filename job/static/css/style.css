@@ -95,7 +95,9 @@ footer .a{
   #ppix{
     width:150px;
     height:160px;
-    text-align: center !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
