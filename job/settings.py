@@ -17,8 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z-yyxnwxakuyh2+qr)vxv$83wyw$c6t30s49@3nmmj@-g-20k)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-DEBUG404 = True 
+DEBUG = FALSE
 
 ALLOWED_HOSTS = ['devjober.herokuapp.com','*','127.0.0.1']
 
@@ -178,20 +177,3 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'DdYDEeqUJryJFPP_piUEr-TmMgA'
 }
 
-
-import logging
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
-        },
-    },
-}
