@@ -173,3 +173,6 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '329429886671528',
     'API_SECRET': 'DdYDEeqUJryJFPP_piUEr-TmMgA'
 }
+
+if os.getcwd() == '/app':
+    DEBUG = False
