@@ -10,5 +10,3 @@ db.sqlite3-journal
 venv
 /static
 .env
-
-###end####
