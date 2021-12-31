@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z-yyxnwxakuyh2+qr)vxv$83wyw$c6t30s49@3nmmj@-g-20k)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1','devjober.herokuapp.com']
@@ -149,7 +149,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'job/static')
 ]
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 django_heroku.settings(locals())
 
 
@@ -173,6 +173,3 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '329429886671528',
     'API_SECRET': 'DdYDEeqUJryJFPP_piUEr-TmMgA'
 }
-
-if os.getcwd() == '/app':
-    DEBUG = False
