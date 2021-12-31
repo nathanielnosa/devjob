@@ -93,6 +93,10 @@ footer .a{
     width:100px !important;
   }
   #ppix{
-    width:50px;
+    width:100px;
+    text-align: center !important;
+  }
+  #search, .btn{
+    width: 100%;
   }
 }
