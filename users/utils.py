@@ -45,3 +45,4 @@ def paginateProfiles(request, profiles, result):
   custom_range = range(leftIndex, rightIndex)
 
   return custom_range, profiles
+

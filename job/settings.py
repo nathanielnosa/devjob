@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-z-yyxnwxakuyh2+qr)vxv$83wyw$c6t30s49@3nmmj@-g-20k)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['devjober.herokuapp.com','*','127.0.0.1']
+ALLOWED_HOSTS = ['devjober.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -153,7 +153,7 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 
 # media config
