@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db.models import fields
 from django import forms
-from . models import Profile, Skill, Message, userSubscribe
+from . models import Profile, Skill, Message, myMail
 
 
 class CreateUser(UserCreationForm):
@@ -73,9 +73,9 @@ class SendMessage(ModelForm):
     }
 
 
-class UserSubscribe(ModelForm):
+class Mailform(ModelForm):
   class Meta:
-    model = userSubscribe
+    model = myMail
     fields = ['name','email']
     widgets = {
       'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'e.g Nathaniel Nosa'}),

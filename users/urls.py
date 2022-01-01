@@ -18,6 +18,6 @@ urlpatterns =[
   path('message/<str:id>/', views.viewmesg, name='message'),
   path('sendmessage/<str:pk>/', views.sendmessage, name='sendmessage'),
   
-  path('subscribers/', views.Usersubscriber, name='subscribers'),
+  path('subscribers/', views.Mailformview, name='subscribers'),
 
   ]
