@@ -73,7 +73,7 @@ class Subscribers(models.Model):
     ordering = ['-created']
 
   def __str__(self):
-    return self.subject
+    return self.email
 
   
 
