@@ -251,5 +251,5 @@ def Usersubscriber(request):
   context = {
     'form':form
   }
-  return render(request, '_footer.html', context)
+  return render(request, 'partial/_footer.html', context)
 
