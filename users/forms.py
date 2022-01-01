@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db.models import fields
 from django import forms
-from . models import Profile, Skill, Message, myMail
+from . models import Profile, Skill, Message
 
 
 class CreateUser(UserCreationForm):

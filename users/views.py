@@ -2,7 +2,7 @@ from django.http import request
 from django.shortcuts import render, redirect
 
 from django.contrib.auth import login,logout,authenticate
-from . forms import CreateUser, Editprofile, SkillForm, SendMessage, Mailform
+from . forms import CreateUser, Editprofile, SkillForm, SendMessage
 from django.contrib.auth.models import User
 from .models import Message, Profile, Skill
 
