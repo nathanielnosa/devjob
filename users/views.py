@@ -2,7 +2,7 @@ from django.http import request
 from django.shortcuts import render, redirect
 
 from django.contrib.auth import login,logout,authenticate
-from . forms import CreateUser, Editprofile, SkillForm, SendMessage, Subscribe
+from . forms import CreateUser, Editprofile, SkillForm, SendMessage, UserSubscribe
 from django.contrib.auth.models import User
 from .models import Message, Profile, Skill
 
@@ -242,9 +242,9 @@ def sendmessage(request, pk):
 
 
 def Usersubscriber(request):
-  form = Subscribe()
+  form = UserSubscribe()
   if request.method == 'POST':
-    form = Subscribe(request.POST)
+    form = UserSubscribe(request.POST)
     if form.is_valid():
       form.save()
       messages.success(request, 'Congrats! You have subscribe.')
