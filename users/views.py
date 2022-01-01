@@ -240,16 +240,3 @@ def sendmessage(request, pk):
   }
   return render(request, 'users/sendmessage.html', context)
 
-
-def Mailformview(request):
-  form = Mailform()
-  if request.method == 'POST':
-    form = Mailform(request.POST)
-    if form.is_valid():
-      form.save()
-      messages.success(request, 'Congrats! You have subscribe.')
-  context = {
-    'form':form
-  }
-  return render(request, 'partial/_footer.html', context)
-

@@ -72,12 +72,3 @@ class SendMessage(ModelForm):
       'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'e.g I need a web dev...'}),
     }
 
-
-class Mailform(ModelForm):
-  class Meta:
-    model = myMail
-    fields = ['name','email']
-    widgets = {
-      'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'e.g Nathaniel Nosa'}),
-      'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder':'e.g NathanielNosa@gmail.com'}),
-    }

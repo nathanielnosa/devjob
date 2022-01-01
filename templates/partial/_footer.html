@@ -40,9 +40,7 @@
         <form action="{% url 'subscriber' %}" method="post" class="form">
           {% csrf_token %}
           <div class="form-group">
-            {% for fields in form %}
-              {{fields}}
-            {% endfor %}
+           <input type="email" name="" id="" placeholder="Enter email" disabled>
           </div>
             <button type="submit" class="btn-block btn btn-success">Subscribe</button>
         </form>
