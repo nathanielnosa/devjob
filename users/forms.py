@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db.models import fields
 from django import forms
-from . models import Profile, Skill, Message
+from . models import Profile, Skill, Message, Subscribers
 
 
 class CreateUser(UserCreationForm):
@@ -70,4 +70,14 @@ class SendMessage(ModelForm):
       'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder':'e.g NathanielNosa@gmail.com'}),
       'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'e.g Lookin For A Developer'}),
       'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'e.g I need a web dev...'}),
+    }
+
+
+class Subscribe(ModelForm):
+  class Meta:
+    model = Subscribers
+    fields = ['name','email']
+    widgets = {
+      'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'e.g Nathaniel Nosa'}),
+      'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder':'e.g NathanielNosa@gmail.com'}),
     }

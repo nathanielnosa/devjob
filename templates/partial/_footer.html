@@ -37,12 +37,13 @@
 
       <div class="col-md-4 text-white">
         <h3>Subscribe</h3>
-        <form action="" method="post" class=>
+        <form action="" method="post" class="form">
+          {% csrf_token %}
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter Full Name" required>
+            {{form.name}}
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter Email" required>
+            {{form.email}}
           </div>
             <button type="submit" class="btn-block btn btn-success">Subscribe</button>
         </form>

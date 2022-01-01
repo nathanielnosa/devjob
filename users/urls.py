@@ -17,5 +17,7 @@ urlpatterns =[
   path('inbox/', views.inbox, name='inbox'),
   path('message/<str:id>/', views.viewmesg, name='message'),
   path('sendmessage/<str:pk>/', views.sendmessage, name='sendmessage'),
+  
+  path('subscriber/', views.Usersubscriber, name='subscriber'),
 
   ]
