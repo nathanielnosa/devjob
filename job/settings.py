@@ -14,9 +14,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DSECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 
-ALLOWED_HOSTS = ['devjober.herokuapp.com','localhost','127.0.0.1']
+# ALLOWED_HOSTS = ['devjober.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*','devjober.herokuapp.com']
 
 
 # Application definition
@@ -145,11 +147,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'job/static')
 ]
 
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 # media config
@@ -173,3 +171,6 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.environ.get('CAPI_SECRET')
 }
 
+# if 'DATABASE_URL' in os.environ:
+#     import dj_database_url
+#     DATABASES = {'default': dj_database_url.config()}
